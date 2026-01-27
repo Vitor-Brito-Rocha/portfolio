@@ -226,11 +226,11 @@
         <v-card :class="mobile ? 'pa-4 elevation-12 data-animate' : 'pa-6 elevation-12 data-animate'">
           <v-list :lines="mobile ? 'one' : 'two'">
             <v-list-item
-                :href="`mailto:${$t('contact.email')}`"
+                :href="`mailto:${t('contact.email')}`"
                 link
                 class="contact-item"
             >
-              <template v-slot:prepend>
+            <template v-slot:prepend>
                 <v-avatar color="primary" :size="mobile ? 32 : 40">
                   <v-icon color="white" :size="mobile ? 20 : 24">mdi-email</v-icon>
                 </v-avatar>
@@ -259,12 +259,13 @@
             <v-divider class="my-2"></v-divider>
 
             <v-list-item
-                :href="$t('contact.github')"
+                :href="t('contact.github')"
                 target="_blank"
                 link
                 class="contact-item"
             >
-              <template v-slot:prepend>
+
+            <template v-slot:prepend>
                 <v-avatar color="grey-darken-3" :size="mobile ? 32 : 40">
                   <v-icon color="white" :size="mobile ? 20 : 24">mdi-github</v-icon>
                 </v-avatar>
@@ -299,7 +300,7 @@ import type { Skill, Project } from '@/types/portfolio'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 const theme = useTheme()
 const { mobile } = useDisplay()
 
