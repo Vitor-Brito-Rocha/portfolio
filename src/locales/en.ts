@@ -60,11 +60,12 @@ export default {
         },
     },
     contact: {
-        ...common.contact,
-        title: 'Let’s Talk?',
+        title: "Let's Talk?",
+        email: 'vitorbritorochaa@email.com',
         emailLabel: 'Email',
-        linkedinLabel: 'Connect with me',
         linkedin: 'https://www.linkedin.com/in/vitor-rocha-557317348/?locale=en_US',
+        linkedinLabel: 'Connect with me',
+        github: 'https://github.com/Vitor-Brito-Rocha',
         githubLabel: 'Check out my projects',
     },
     footer: {

@@ -60,11 +60,12 @@ export default {
         },
     },
     contact: {
-        ...common.contact,
         title: 'Vamos Conversar?',
+        email: 'vitorbritorochaa@email.com',
         emailLabel: 'Email',
-        linkedinLabel: 'Conecte-se comigo',
         linkedin: 'https://www.linkedin.com/in/vitor-rocha-557317348/',
+        linkedinLabel: 'Conecte-se comigo',
+        github: 'https://github.com/Vitor-Brito-Rocha',
         githubLabel: 'Veja meus projetos',
     },
     footer: {
