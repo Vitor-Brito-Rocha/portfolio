@@ -366,7 +366,7 @@ const debugInfo = computed(() => {
   return JSON.stringify({
     locale: locale.value,
     hasContactMessages: !!messages.value[locale.value]?.contact,
-    contactKeys: messages.value[locale.value]?.contact ? Object.keys(messages.value[locale.value].contact) : [],
+    contactKeys: messages.value[locale.value]?.contact ? Object.keys(messages.value[locale.value]?.contact ?? {}) : [],
     values: {
       title: contactTitle.value,
       email: contactEmail.value,
