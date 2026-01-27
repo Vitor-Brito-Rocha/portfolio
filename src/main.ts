@@ -22,12 +22,34 @@ import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 import {i18n, loadLocale} from "@/i18n.ts";
 import Particles from 'vue3-particles'
+import {
+    VAvatar,
+    VBtn,
+    VCard,
+    VDivider,
+    VIcon,
+    VList,
+    VListItem,
+    VListItemSubtitle,
+    VListItemTitle
+} from "vuetify/components";
 
 const vuetify = createVuetify({
     icons: {
         defaultSet: 'mdi', // This is already the default value - only for display purposes
     },
-    components,
+    components: {
+        ...components,
+        VList,
+        VListItem,
+        VListItemTitle,
+        VListItemSubtitle,
+        VDivider,
+        VAvatar,
+        VIcon,
+        VCard,
+        VBtn
+    },
     directives,
     theme: {
         defaultTheme: 'light',
@@ -63,10 +85,10 @@ async function bootstrap() {
     await loadLocale(locale); // ⬅️ carrega pt.ts ou en.ts
 
     const app = createApp(App)
+    app.use(vuetify)
     app.use(i18n)
     app.use(router)
     app.use(Particles)
-    app.use(vuetify)
     app.mount('#app')
 }
 bootstrap();
