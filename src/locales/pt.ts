@@ -12,71 +12,63 @@ export default {
         contact: 'Contato'
     },
     hero: {
-        greeting: 'Olá, sou Desenvolvedor Full Stack',
-        role: 'Vue.js • TypeScript • Node.js',
+        greeting: 'Desenvolvedor Full-Stack & Engenheiro de Software',
+        role: 'Entusiasta da Tecnologia e do Direito',
         downloadCV: 'Baixar CV',
         contact: 'Entre em Contato',
-        cvLink: '/cv-pt.pdf'
+        cvLink: '/cvs/cv-pt.pdf'
     },
     about: {
         title: 'Sobre Mim',
-        description: 'Desenvolvedor apaixonado por criar soluções elegantes e eficientes. Com experiência em desenvolvimento full stack, foco em entregar produtos de alta qualidade que fazem a diferença.'
+        description: 'Desenvolvedor apaixonado por criar soluções elegantes e eficientes. Com experiência em desenvolvimento Full-Stack, foco em entregar produtos de alta qualidade que fazem a diferença, contribuo com o desenvolvimento profissional de colegas e resolvo a "dor" do cliente.'
     },
     skills: {
         title: 'Habilidades Técnicas',
         vue: 'Vue.js',
         typescript: 'TypeScript',
         node: 'Node.js',
-        python: 'Python',
+        csharp: 'C# .NET',
         database: 'Banco de Dados',
-        docker: 'Docker',
+        java: 'Java',
         git: 'Git',
-        figma: 'UI/UX Design'
+        angular: 'Angular.js'
     },
     projects: {
         title: 'Meus Projetos',
         demo: 'Ver Demo',
         code: 'Código',
         project1: {
-            title: 'E-commerce Completo',
-            description: 'Plataforma de vendas com carrinho, pagamento integrado e painel administrativo'
+            title: 'VRestaurantes',
+            description: 'SaaS no formato de web app responsivo para restaurantes com controle de pedidos, comandas e pagamentos, utilizando fundamentos do desenvolvimento de software como SOLID',
         },
         project2: {
-            title: 'API REST Escalável',
-            description: 'Backend robusto com autenticação JWT, cache Redis e documentação Swagger'
+            title: 'C# .NET - API REST Escalável',
+            description: 'API RESTFUL utilizando C# .NET + SQLSERVER (Imagem desatualizada).',
         },
         project3: {
-            title: 'Dashboard Analytics',
-            description: 'Sistema de análise de dados em tempo real com gráficos interativos'
+            title: 'Lista de Contatos',
+            description: 'Primeiro projeto em Vue.js para melhor compreensão do Framework'
         }
     },
     experience: {
         title: 'Experiência Profissional',
         exp1: {
-            period: '2022 - Presente',
-            title: 'Desenvolvedor Full Stack Sênior',
-            company: 'Tech Company',
-            description: 'Desenvolvimento de aplicações web escaláveis usando Vue.js e Node.js'
+            period: '03/2025 - Presente',
+            title: 'Desenvolvedor Front End',
+            company: 'Prolins IT Solution & Outsourcing',
+            description: 'Desenvolvimento de aplicações web escaláveis usando Vue.js (2 e 3) e Angular.js - Contribuição com sistemas legados, modelagem de banco de dados e otimização de performance.'
         },
-        exp2: {
-            period: '2020 - 2022',
-            title: 'Desenvolvedor Frontend',
-            company: 'Startup XYZ',
-            description: 'Criação de interfaces modernas e responsivas com Vue.js e Vuetify'
-        }
     },
     contact: {
+        ...common.contact,
         title: 'Vamos Conversar?',
         emailLabel: 'Email',
-        email: 'seu@email.com',
         linkedinLabel: 'Conecte-se comigo',
-        linkedin: 'https://linkedin.com/in/seu-perfil',
+        linkedin: 'https://www.linkedin.com/in/vitor-rocha-557317348/',
         githubLabel: 'Veja meus projetos',
-        github: 'https://github.com/seu-usuario'
     },
     footer: {
-        madeWith: 'Feito com',
-        by: 'por Você • 2025'
+        by: 'Criado por Vitor © 2025'
     },
     stats: {
         projects: 'Projetos',

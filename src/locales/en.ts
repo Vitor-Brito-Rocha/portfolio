@@ -1,4 +1,5 @@
 import common from "@/locales/common.ts";
+
 export default {
     ...common,
     titulo_site: 'Portfolio - Vitor Brito Rocha',
@@ -11,73 +12,64 @@ export default {
         contact: 'Contact'
     },
     hero: {
-        greeting: 'Hi, I\'m a Full Stack Developer',
-        role: 'Vue.js • TypeScript • Node.js',
+        greeting: 'Full-Stack Developer & Software Engineer',
+        role: 'Technology and Law Enthusiast',
         downloadCV: 'Download CV',
         contact: 'Get in Touch',
-        cvLink: '/cv-en.pdf'
+        cvLink: '/cvs/cv-en.pdf'
     },
     about: {
         title: 'About Me',
-        description: 'Passionate developer focused on creating elegant and efficient solutions. With full stack development experience, I focus on delivering high-quality products that make a difference.'
+        description: 'A developer passionate about creating elegant and efficient solutions. With experience in Full-Stack development, I focus on delivering high-quality products that make a difference, contributing to my colleagues’ professional growth and solving real customer pain points.'
     },
     skills: {
         title: 'Technical Skills',
         vue: 'Vue.js',
         typescript: 'TypeScript',
         node: 'Node.js',
-        python: 'Python',
+        csharp: 'C# .NET',
         database: 'Database',
-        docker: 'Docker',
+        java: 'Java',
         git: 'Git',
-        figma: 'UI/UX Design'
+        angular: 'Angular.js'
     },
     projects: {
         title: 'My Projects',
         demo: 'View Demo',
         code: 'Code',
         project1: {
-            title: 'Full E-commerce',
-            description: 'Sales platform with cart, integrated payment and admin panel'
+            title: 'VRestaurantes',
+            description: 'SaaS web application for restaurants, featuring order, tab, and payment management, built using core software engineering principles such as SOLID.',
         },
         project2: {
-            title: 'Scalable REST API',
-            description: 'Robust backend with JWT authentication, Redis cache and Swagger documentation'
+            title: 'C# .NET – Scalable REST API',
+            description: 'RESTful API built with C# .NET and SQL Server (outdated image).',
         },
         project3: {
-            title: 'Analytics Dashboard',
-            description: 'Real-time data analysis system with interactive charts'
+            title: 'Contact List',
+            description: 'My first Vue.js project, developed to better understand the framework.'
         }
     },
     experience: {
         title: 'Professional Experience',
         exp1: {
-            period: '2022 - Present',
-            title: 'Senior Full Stack Developer',
-            company: 'Tech Company',
-            description: 'Development of scalable web applications using Vue.js and Node.js'
+            period: '03/2025 - Present',
+            title: 'Front-End Developer',
+            company: 'Prolins IT Solution & Outsourcing',
+            description: 'Development of scalable web applications using Vue.js (2 and 3) and Angular.js. Contribution to legacy systems, database modeling, and performance optimization.'
         },
-        exp2: {
-            period: '2020 - 2022',
-            title: 'Frontend Developer',
-            company: 'Startup XYZ',
-            description: 'Creating modern and responsive interfaces with Vue.js and Vuetify'
-        }
     },
     contact: {
-        title: 'Let\'s Talk?',
+        ...common.contact,
+        title: 'Let’s Talk?',
         emailLabel: 'Email',
-        email: 'your@email.com',
         linkedinLabel: 'Connect with me',
-        linkedin: 'https://linkedin.com/in/your-profile',
-        githubLabel: 'See my projects',
-        github: 'https://github.com/your-username'
+        linkedin: 'https://www.linkedin.com/in/vitor-rocha-557317348/?locale=en_US',
+        githubLabel: 'Check out my projects',
     },
     footer: {
-        madeWith: 'Made with',
-        by: 'by You • 2025'
+        by: 'Created by Vitor © 2025'
     },
-    // Adicione em pt.ts e en.ts
     stats: {
         projects: 'Projects',
         experience: 'Years',

@@ -7,7 +7,6 @@ export interface MenuItem {
 export interface Skill {
     name: string
     icon: string
-    level: number
     color: string
 }
 
@@ -17,8 +16,10 @@ export interface Project {
     description: string
     image: string
     technologies: string[]
-    demo: string
-    github: string
+    demo?: string
+    github?: string,
+    active_demo?: boolean
+    active_github?: boolean
 }
 
 export interface ContactInfo {
