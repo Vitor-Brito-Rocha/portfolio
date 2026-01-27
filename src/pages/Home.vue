@@ -221,6 +221,10 @@
         <h2 :class="mobile ? 'text-h4 mb-6' : 'text-h3 mb-8'" class="text-center text-white data-animate">
           {{ $t('contact.title') }}
         </h2>
+        <!-- Debug Info -->
+        <v-alert type="info" class="mb-4">
+          <pre>{{ debugInfo }}</pre>
+        </v-alert>
       </v-col>
       <v-col cols="12" :md="6" :offset-md="mobile ? 0 : 3">
         <v-card :class="mobile ? 'pa-4 elevation-12 data-animate' : 'pa-6 elevation-12 data-animate'">
@@ -300,10 +304,80 @@ import type { Skill, Project } from '@/types/portfolio'
 
 gsap.registerPlugin(ScrollTrigger)
 
-const { locale, t } = useI18n()
+const { locale, t, messages } = useI18n()
 const theme = useTheme()
 const { mobile } = useDisplay()
+const contactTitle = computed(() => {
+  try {
+    return t('contact.title') || 'Vamos Conversar?'
+  } catch (e) {
+    return 'Vamos Conversar?'
+  }
+})
 
+const contactEmail = computed(() => {
+  try {
+    return t('contact.email') || 'vitorbritorochaa@email.com'
+  } catch (e) {
+    return 'vitorbritorochaa@email.com'
+  }
+})
+
+const contactEmailLabel = computed(() => {
+  try {
+    return t('contact.emailLabel') || 'Email'
+  } catch (e) {
+    return 'Email'
+  }
+})
+
+const contactLinkedin = computed(() => {
+  try {
+    return t('contact.linkedin') || 'https://www.linkedin.com/in/vitor-rocha-557317348/'
+  } catch (e) {
+    return 'https://www.linkedin.com/in/vitor-rocha-557317348/'
+  }
+})
+
+const contactLinkedinLabel = computed(() => {
+  try {
+    return t('contact.linkedinLabel') || 'Conecte-se comigo'
+  } catch (e) {
+    return 'Conecte-se comigo'
+  }
+})
+
+const contactGithub = computed(() => {
+  try {
+    return t('contact.github') || 'https://github.com/Vitor-Brito-Rocha'
+  } catch (e) {
+    return 'https://github.com/Vitor-Brito-Rocha'
+  }
+})
+
+const contactGithubLabel = computed(() => {
+  try {
+    return t('contact.githubLabel') || 'Veja meus projetos'
+  } catch (e) {
+    return 'Veja meus projetos'
+  }
+})
+const debugInfo = computed(() => {
+  return JSON.stringify({
+    locale: locale.value,
+    hasContactMessages: !!messages.value[locale.value]?.contact,
+    contactKeys: messages.value[locale.value]?.contact ? Object.keys(messages.value[locale.value].contact) : [],
+    values: {
+      title: contactTitle.value,
+      email: contactEmail.value,
+      emailLabel: contactEmailLabel.value,
+      linkedin: contactLinkedin.value,
+      linkedinLabel: contactLinkedinLabel.value,
+      github: contactGithub.value,
+      githubLabel: contactGithubLabel.value
+    }
+  }, null, 2)
+})
 // Refs
 const avatarRef = ref<HTMLElement>()
 const titleRef = ref<HTMLElement>()
