@@ -1,17 +1,15 @@
 <script setup lang="ts">
-import {RouterView} from "vue-router";
-import { watch, onMounted } from 'vue'
+import { RouterView } from "vue-router"
+import {onMounted, watch} from 'vue'
 import { useI18n } from 'vue-i18n'
+import Navbar from "@/components/Navbar.vue"
 
 const { t, locale } = useI18n()
 
-// Função para atualizar o título
 const updateTitle = () => {
-  // 'titulo_site' deve estar no seu JSON de tradução
   document.title = t('titulo_site')
 }
 
-// 1. Atualiza assim que o componente monta
 onMounted(() => {
   updateTitle()
 })
@@ -23,9 +21,27 @@ watch(locale, () => {
 </script>
 
 <template>
-<router-view v-slot="{ Component }">
-  <Component :is="Component" />
-</router-view>
+  <v-app>
+    <router-view v-slot="{ Component }">
+      <v-app-bar elevation="2">
+        <Navbar />
+      </v-app-bar>
+      <v-main>
+        <Component :is="Component" />
+      </v-main>
+    </router-view>
+  </v-app>
 </template>
 
-<style scoped></style>
+<style>
+/* Estilos globais mínimos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+</style>

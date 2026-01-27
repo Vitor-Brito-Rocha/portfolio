@@ -12,9 +12,13 @@
   },
   "dependencies": {
     "@fontsource/roboto": "^5.2.9",
+    "gsap": "^3.14.2",
+    "tsparticles-engine": "^2.12.0",
+    "tsparticles-slim": "^2.12.0",
     "vue": "^3.5.26",
     "vue-i18n": "^11.2.8",
     "vue-router": "^4.6.4",
+    "vue3-particles": "^2.12.0",
     "vuetify": "^3.11.7"
   },
   "devDependencies": {

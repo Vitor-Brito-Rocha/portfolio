@@ -6,8 +6,17 @@ const router = createRouter({
   routes: [{
     path: '',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: {
+      requireAuth: false
+    }
   }],
 })
+router.beforeEach((to, from, next) => {
+  if(to.meta.requireAuth && localStorage.getItem('loggedIn') !== 'true') {
 
+  } else {
+    next()
+  }
+})
 export default router
