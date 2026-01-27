@@ -14,7 +14,7 @@ export default {
     hero: {
         greeting: 'Full-Stack Developer & Software Engineer',
         role: 'Technology and Law Enthusiast',
-        downloadCV: 'Acess CV',
+        downloadCV: 'Access CV',
         contact: 'Get in Touch',
         cvLink: '/cvs/cv-en.pdf'
     },
