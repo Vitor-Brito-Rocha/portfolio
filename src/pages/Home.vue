@@ -215,74 +215,74 @@
   </v-container>
 
   <!-- Contact Section -->
-  <v-container id="contact" :class="mobile ? 'py-8 contact-section' : 'py-16 contact-section mt-4 mb-4'">
-    <v-row>
-      <v-col cols="12">
-        <h2 :class="mobile ? 'text-h4 mb-6' : 'text-h3 mb-8'" class="text-center text-white data-animate">
-          {{ $t('contact.title') }}
-        </h2>
-        <!-- Debug Info -->
-        <v-alert type="info" class="mb-4">
-          <pre>{{ debugInfo }}</pre>
-        </v-alert>
-      </v-col>
-      <v-col cols="12" :md="6" :offset-md="mobile ? 0 : 3">
-        <v-card :class="mobile ? 'pa-4 elevation-12 data-animate' : 'pa-6 elevation-12 data-animate'">
-          <v-list :lines="mobile ? 'one' : 'two'">
-            <v-list-item
-                :href="`mailto:${t('contact.email')}`"
-                link
-                class="contact-item"
-            >
-            <template v-slot:prepend>
-                <v-avatar color="primary" :size="mobile ? 32 : 40">
-                  <v-icon color="white" :size="mobile ? 20 : 24">mdi-email</v-icon>
-                </v-avatar>
-              </template>
-              <v-list-item-title :class="mobile ? 'text-body-2' : ''">{{ $t('contact.emailLabel') }}</v-list-item-title>
-              <v-list-item-subtitle :class="mobile ? 'text-caption' : ''">{{ $t('contact.email') }}</v-list-item-subtitle>
-            </v-list-item>
+<!--  <v-container id="contact" :class="mobile ? 'py-8 contact-section' : 'py-16 contact-section mt-4 mb-4'">-->
+<!--    <v-row>-->
+<!--      <v-col cols="12">-->
+<!--        <h2 :class="mobile ? 'text-h4 mb-6' : 'text-h3 mb-8'" class="text-center text-white data-animate">-->
+<!--          {{ $t('contact.title') }}-->
+<!--        </h2>-->
+<!--        &lt;!&ndash; Debug Info &ndash;&gt;-->
+<!--        <v-alert type="info" class="mb-4">-->
+<!--          <pre>{{ debugInfo }}</pre>-->
+<!--        </v-alert>-->
+<!--      </v-col>-->
+<!--      <v-col cols="12" :md="6" :offset-md="mobile ? 0 : 3">-->
+<!--        <v-card :class="mobile ? 'pa-4 elevation-12 data-animate' : 'pa-6 elevation-12 data-animate'">-->
+<!--          <v-list :lines="mobile ? 'one' : 'two'">-->
+<!--            <v-list-item-->
+<!--                :href="`mailto:${t('contact.email')}`"-->
+<!--                link-->
+<!--                class="contact-item"-->
+<!--            >-->
+<!--            <template v-slot:prepend>-->
+<!--                <v-avatar color="primary" :size="mobile ? 32 : 40">-->
+<!--                  <v-icon color="white" :size="mobile ? 20 : 24">mdi-email</v-icon>-->
+<!--                </v-avatar>-->
+<!--              </template>-->
+<!--              <v-list-item-title :class="mobile ? 'text-body-2' : ''">{{ $t('contact.emailLabel') }}</v-list-item-title>-->
+<!--              <v-list-item-subtitle :class="mobile ? 'text-caption' : ''">{{ $t('contact.email') }}</v-list-item-subtitle>-->
+<!--            </v-list-item>-->
 
-            <v-divider class="my-2"></v-divider>
+<!--            <v-divider class="my-2"></v-divider>-->
 
-            <v-list-item
-                :href="$t('contact.linkedin')"
-                target="_blank"
-                link
-                class="contact-item"
-            >
-              <template v-slot:prepend>
-                <v-avatar color="blue" :size="mobile ? 32 : 40">
-                  <v-icon color="white" :size="mobile ? 20 : 24">mdi-linkedin</v-icon>
-                </v-avatar>
-              </template>
-              <v-list-item-title :class="mobile ? 'text-body-2' : ''">LinkedIn</v-list-item-title>
-              <v-list-item-subtitle :class="mobile ? 'text-caption' : ''">{{ $t('contact.linkedinLabel') }}</v-list-item-subtitle>
-            </v-list-item>
+<!--            <v-list-item-->
+<!--                :href="$t('contact.linkedin')"-->
+<!--                target="_blank"-->
+<!--                link-->
+<!--                class="contact-item"-->
+<!--            >-->
+<!--              <template v-slot:prepend>-->
+<!--                <v-avatar color="blue" :size="mobile ? 32 : 40">-->
+<!--                  <v-icon color="white" :size="mobile ? 20 : 24">mdi-linkedin</v-icon>-->
+<!--                </v-avatar>-->
+<!--              </template>-->
+<!--              <v-list-item-title :class="mobile ? 'text-body-2' : ''">LinkedIn</v-list-item-title>-->
+<!--              <v-list-item-subtitle :class="mobile ? 'text-caption' : ''">{{ $t('contact.linkedinLabel') }}</v-list-item-subtitle>-->
+<!--            </v-list-item>-->
 
-            <v-divider class="my-2"></v-divider>
+<!--            <v-divider class="my-2"></v-divider>-->
 
-            <v-list-item
-                :href="t('contact.github')"
-                target="_blank"
-                link
-                class="contact-item"
-            >
+<!--            <v-list-item-->
+<!--                :href="t('contact.github')"-->
+<!--                target="_blank"-->
+<!--                link-->
+<!--                class="contact-item"-->
+<!--            >-->
 
-            <template v-slot:prepend>
-                <v-avatar color="grey-darken-3" :size="mobile ? 32 : 40">
-                  <v-icon color="white" :size="mobile ? 20 : 24">mdi-github</v-icon>
-                </v-avatar>
-              </template>
-              <v-list-item-title :class="mobile ? 'text-body-2' : ''">GitHub</v-list-item-title>
-              <v-list-item-subtitle :class="mobile ? 'text-caption' : ''">{{ $t('contact.githubLabel') }}</v-list-item-subtitle>
-            </v-list-item>
-          </v-list>
-        </v-card>
-      </v-col>
-    </v-row>
-  </v-container>
-
+<!--            <template v-slot:prepend>-->
+<!--                <v-avatar color="grey-darken-3" :size="mobile ? 32 : 40">-->
+<!--                  <v-icon color="white" :size="mobile ? 20 : 24">mdi-github</v-icon>-->
+<!--                </v-avatar>-->
+<!--              </template>-->
+<!--              <v-list-item-title :class="mobile ? 'text-body-2' : ''">GitHub</v-list-item-title>-->
+<!--              <v-list-item-subtitle :class="mobile ? 'text-caption' : ''">{{ $t('contact.githubLabel') }}</v-list-item-subtitle>-->
+<!--            </v-list-item>-->
+<!--          </v-list>-->
+<!--        </v-card>-->
+<!--      </v-col>-->
+<!--    </v-row>-->
+<!--  </v-container>-->
+    <Contact />
   <!-- Footer -->
   <v-footer class="bg-grey-darken-4 text-center py-4 ">
     <v-col cols="12">
@@ -301,6 +301,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ParticlesBackground from '@/components/ParticlesBackground.vue'
 import type { Skill, Project } from '@/types/portfolio'
+import Contact from "@/components/Contact.vue";
 
 gsap.registerPlugin(ScrollTrigger)
 
