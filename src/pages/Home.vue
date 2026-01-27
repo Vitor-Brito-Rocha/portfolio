@@ -301,7 +301,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ParticlesBackground from '@/components/ParticlesBackground.vue'
 import type { Skill, Project } from '@/types/portfolio'
-import Contact from "@/components/Contact.vue";
+import Contact from ".././components/Contact.vue";
 
 gsap.registerPlugin(ScrollTrigger)
 
