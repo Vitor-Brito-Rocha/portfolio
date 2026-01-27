@@ -8,51 +8,51 @@
 
       <div>
         <v-card>
-          <v-list>
+          <div>
 
-            <v-list-item
+            <div
                 :href="`mailto:${t('contact.email')}`"
             >
-              <template v-slot:prepend>
+<!--              <template v-slot:prepend>-->
                 <v-avatar color="primary" :size="mobile ? 32 : 40">
                   <v-icon :size="mobile ? 20 : 24">mdi-email</v-icon>
                 </v-avatar>
-              </template>
+<!--              </template>-->
               <v-list-item-title>{{ t('contact.emailLabel') }}</v-list-item-title>
               <v-list-item-subtitle>{{ t('contact.email') }}</v-list-item-subtitle>
-            </v-list-item>
+            </div>
 
             <v-divider class="my-2"></v-divider>
 
-            <v-list-item
+            <div
                 :href="t('contact.linkedin')"
                 target="_blank"
             >
-              <template v-slot:prepend>
+<!--              <template v-slot:prepend>-->
                 <v-avatar color="blue" :size="mobile ? 32 : 40">
                   <v-icon :size="mobile ? 20 : 24">mdi-linkedin</v-icon>
                 </v-avatar>
-              </template>
+<!--              </template>-->
               <v-list-item-title>LinkedIn</v-list-item-title>
               <v-list-item-subtitle>{{ t('contact.linkedinLabel') }}</v-list-item-subtitle>
-            </v-list-item>
+            </div>
 
             <v-divider class="my-2"></v-divider>
 
-            <v-list-item
+            <div
                 :href="t('contact.github')"
                 target="_blank"
             >
-              <template v-slot:prepend>
+<!--              <template v-slot:prepend>-->
                 <v-avatar color="grey-darken-3" :size="mobile ? 32 : 40">
                   <v-icon :size="mobile ? 20 : 24">mdi-github</v-icon>
                 </v-avatar>
-              </template>
+<!--              </template>-->
               <v-list-item-title>GitHub</v-list-item-title>
               <v-list-item-subtitle>{{ t('contact.githubLabel') }}</v-list-item-subtitle>
-            </v-list-item>
+            </div>
 
-          </v-list>
+          </div>
         </v-card>
       </div>
   </v-container>
