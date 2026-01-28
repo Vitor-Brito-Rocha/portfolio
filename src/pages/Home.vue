@@ -182,38 +182,6 @@
       </v-col>
     </v-row>
   </v-container>
-
-  <!-- Experience Timeline -->
-  <v-container id="experience" :class="[mobile ? 'py-8' : 'py-16', skillsBackground]">
-    <v-row>
-      <v-col cols="12">
-        <h2 :class="mobile ? 'text-h4 mb-6' : 'text-h3 mb-8'" class="text-center data-animate">
-          {{ $t('experience.title') }}
-        </h2>
-      </v-col>
-      <v-col cols="12" :md="8" :offset-md="mobile ? 0 : 2">
-        <v-timeline :side="mobile ? 'end' : 'end'" align="start" :density="mobile ? 'compact' : 'default'">
-          <v-timeline-item
-              v-for="(exp, index) in experiences"
-              :key="index"
-              :dot-color="exp.color"
-              :size="mobile ? 'x-small' : 'small'"
-              class="data-animate"
-          >
-            <template v-slot:opposite>
-              <div :class="mobile ? 'text-caption font-weight-bold' : 'text-caption font-weight-bold'">{{ $t(exp.period) }}</div>
-            </template>
-            <v-card elevation="4">
-              <v-card-title :class="mobile ? 'text-body-1' : 'text-h6'">{{ $t(exp.title) }}</v-card-title>
-              <v-card-subtitle :class="mobile ? 'text-caption' : ''">{{ $t(exp.company) }}</v-card-subtitle>
-              <v-card-text :class="mobile ? 'text-caption' : ''">{{ $t(exp.description) }}</v-card-text>
-            </v-card>
-          </v-timeline-item>
-        </v-timeline>
-      </v-col>
-    </v-row>
-  </v-container>
-
   <!-- Contact Section -->
   <v-container id="contact" :class="mobile ? 'py-8 contact-section' : 'py-16 contact-section mt-4 mb-4'">
     <v-row>
@@ -230,7 +198,7 @@
                 link
                 class="contact-item"
             >
-            <template v-slot:prepend>
+              <template v-slot:prepend>
                 <v-avatar color="primary" :size="mobile ? 32 : 40">
                   <v-icon color="white" :size="mobile ? 20 : 24">mdi-email</v-icon>
                 </v-avatar>
@@ -265,7 +233,7 @@
                 class="contact-item"
             >
 
-            <template v-slot:prepend>
+              <template v-slot:prepend>
                 <v-avatar color="grey-darken-3" :size="mobile ? 32 : 40">
                   <v-icon color="white" :size="mobile ? 20 : 24">mdi-github</v-icon>
                 </v-avatar>
@@ -278,6 +246,37 @@
       </v-col>
     </v-row>
   </v-container>
+  <!-- Experience Timeline -->
+  <v-container id="experience" :class="[mobile ? 'py-8' : 'py-16', skillsBackground]">
+    <v-row>
+      <v-col cols="12">
+        <h2 :class="mobile ? 'text-h4 mb-6' : 'text-h3 mb-8'" class="text-center data-animate">
+          {{ $t('experience.title') }}
+        </h2>
+      </v-col>
+      <v-col cols="12" :md="8" :offset-md="mobile ? 0 : 2">
+        <v-timeline :side="mobile ? 'end' : 'end'" align="start" :density="mobile ? 'compact' : 'default'">
+          <v-timeline-item
+              v-for="(exp, index) in experiences"
+              :key="index"
+              :dot-color="exp.color"
+              :size="mobile ? 'x-small' : 'small'"
+              class="data-animate"
+          >
+            <template v-slot:opposite>
+              <div :class="mobile ? 'text-caption font-weight-bold' : 'text-caption font-weight-bold'">{{ $t(exp.period) }}</div>
+            </template>
+            <v-card elevation="4">
+              <v-card-title :class="mobile ? 'text-body-1' : 'text-h6'">{{ $t(exp.title) }}</v-card-title>
+              <v-card-subtitle :class="mobile ? 'text-caption' : ''">{{ $t(exp.company) }}</v-card-subtitle>
+              <v-card-text :class="mobile ? 'text-caption' : ''">{{ $t(exp.description) }}</v-card-text>
+            </v-card>
+          </v-timeline-item>
+        </v-timeline>
+      </v-col>
+    </v-row>
+  </v-container>
+
   <!-- Footer -->
   <v-footer class="bg-grey-darken-4 text-center py-4 ">
     <v-col cols="12">
