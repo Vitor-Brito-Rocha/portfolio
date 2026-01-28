@@ -222,21 +222,17 @@
           {{ $t('contact.title') }}
         </h2>
       </v-col>
-      <v-col cols="12" :md="6" :offset-md="3">
+      <v-col cols="12" md="6" offset-md="3">
         <v-card :class="mobile ? 'pa-4 elevation-12 data-animate' : 'pa-6 elevation-12 data-animate'">
-          <v-list :lines="mobile ? 'one' : 'two'">
+          <v-list lines="two">
             <v-list-item
                 :href="`mailto:${$t('contact.email')}`"
                 link
                 class="contact-item"
+                prepend-icon="mdi-email"
             >
-              <template v-slot:prepend>
-                <v-avatar color="primary" :size="mobile ? 32 : 40">
-                  <v-icon color="white" :size="mobile ? 20 : 24">mdi-email</v-icon>
-                </v-avatar>
-              </template>
-              <v-list-item-title :class="mobile ? 'text-body-2' : ''">{{ $t('contact.emailLabel') }}</v-list-item-title>
-              <v-list-item-subtitle :class="mobile ? 'text-caption' : ''">{{ $t('contact.email') }}</v-list-item-subtitle>
+              <v-list-item-title>{{ $t('contact.emailLabel') }}</v-list-item-title>
+              <v-list-item-subtitle>{{ $t('contact.email') }}</v-list-item-subtitle>
             </v-list-item>
 
             <v-divider class="my-2"></v-divider>
@@ -246,14 +242,10 @@
                 target="_blank"
                 link
                 class="contact-item"
+                prepend-icon="mdi-linkedin"
             >
-              <template v-slot:prepend>
-                <v-avatar color="blue" :size="mobile ? 32 : 40">
-                  <v-icon color="white" :size="mobile ? 20 : 24">mdi-linkedin</v-icon>
-                </v-avatar>
-              </template>
-              <v-list-item-title :class="mobile ? 'text-body-2' : ''">LinkedIn</v-list-item-title>
-              <v-list-item-subtitle :class="mobile ? 'text-caption' : ''">{{ $t('contact.linkedinLabel') }}</v-list-item-subtitle>
+              <v-list-item-title>LinkedIn</v-list-item-title>
+              <v-list-item-subtitle>{{ $t('contact.linkedinLabel') }}</v-list-item-subtitle>
             </v-list-item>
 
             <v-divider class="my-2"></v-divider>
@@ -263,21 +255,16 @@
                 target="_blank"
                 link
                 class="contact-item"
+                prepend-icon="mdi-github"
             >
-              <template v-slot:prepend>
-                <v-avatar color="grey-darken-3" :size="mobile ? 32 : 40">
-                  <v-icon color="white" :size="mobile ? 20 : 24">mdi-github</v-icon>
-                </v-avatar>
-              </template>
-              <v-list-item-title :class="mobile ? 'text-body-2' : ''">GitHub</v-list-item-title>
-              <v-list-item-subtitle :class="mobile ? 'text-caption' : ''">{{ $t('contact.githubLabel') }}</v-list-item-subtitle>
+              <v-list-item-title>GitHub</v-list-item-title>
+              <v-list-item-subtitle>{{ $t('contact.githubLabel') }}</v-list-item-subtitle>
             </v-list-item>
           </v-list>
         </v-card>
       </v-col>
     </v-row>
-  </v-container>
-  <!-- Footer -->
+  </v-container>  <!-- Footer -->
   <v-footer class="bg-grey-darken-4 text-center py-4 ">
     <v-col cols="12">
       <p :class="mobile ? 'text-caption text-grey-lighten-1 mb-0' : 'text-grey-lighten-1 mb-0'">
@@ -403,7 +390,13 @@ const scrollTo = (id: string): void => {
   display: flex;
   align-items: center;
 }
+.contact-item :deep(.v-list-item__prepend) {
+  margin-right: 16px;
+}
 
+.contact-item :deep(.v-icon) {
+  color: rgb(var(--v-theme-primary));
+}
 .hero-section::before {
   content: '';
   position: absolute;
