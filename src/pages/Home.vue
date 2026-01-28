@@ -217,20 +217,20 @@
   <!-- Contact Section -->
   <v-container id="contact" :class="mobile ? 'py-8 contact-section' : 'py-16 contact-section mt-4 mb-4'">
     <v-row>
-      <v-col cols="6">
+      <v-col cols="12">
         <h2 :class="mobile ? 'text-h4 mb-6' : 'text-h3 mb-8'" class="text-center text-white data-animate">
           {{ $t('contact.title') }}
         </h2>
       </v-col>
-      <v-col cols="6" :md="6" :offset-md="mobile ? 0 : 3">
+      <v-col cols="12" :md="6" :offset-md="3">
         <v-card :class="mobile ? 'pa-4 elevation-12 data-animate' : 'pa-6 elevation-12 data-animate'">
           <v-list :lines="mobile ? 'one' : 'two'">
             <v-list-item
-                :href="`mailto:${t('contact.email')}`"
+                :href="`mailto:${$t('contact.email')}`"
                 link
                 class="contact-item"
             >
-            <template v-slot:prepend>
+              <template v-slot:prepend>
                 <v-avatar color="primary" :size="mobile ? 32 : 40">
                   <v-icon color="white" :size="mobile ? 20 : 24">mdi-email</v-icon>
                 </v-avatar>
@@ -259,13 +259,12 @@
             <v-divider class="my-2"></v-divider>
 
             <v-list-item
-                :href="t('contact.github')"
+                :href="$t('contact.github')"
                 target="_blank"
                 link
                 class="contact-item"
             >
-
-            <template v-slot:prepend>
+              <template v-slot:prepend>
                 <v-avatar color="grey-darken-3" :size="mobile ? 32 : 40">
                   <v-icon color="white" :size="mobile ? 20 : 24">mdi-github</v-icon>
                 </v-avatar>
