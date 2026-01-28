@@ -384,6 +384,58 @@ const scrollTo = (id: string): void => {
     window.scrollTo({ top: offsetPosition, behavior: 'smooth' })
   }
 }
+const counterAnimation = (element: HTMLElement, target: number): void => {
+
+  const obj = { value: 0 }
+
+  gsap.to(obj, {
+
+    value: target,
+
+    duration: 2,
+
+    ease: 'power1.out',
+
+    onUpdate: () => {
+
+      element.textContent = Math.round(obj.value).toString()
+
+    }
+
+  })
+
+}
+onMounted(()=>{
+  stats.value.forEach(stat => {
+
+    ScrollTrigger.create({
+
+      trigger: '#about',
+
+      start: 'top center',
+
+      once: true,
+
+      onEnter: () => {
+
+        const element = statRefs.value[stat.label]
+
+        if (element) {
+
+          counterAnimation(element, stat.value)
+
+        }
+
+      }
+
+    })
+
+  })
+
+})
+
+</script>
+})
 </script>
 
 <style scoped>
