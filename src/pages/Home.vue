@@ -215,74 +215,69 @@
   </v-container>
 
   <!-- Contact Section -->
-<!--  <v-container id="contact" :class="mobile ? 'py-8 contact-section' : 'py-16 contact-section mt-4 mb-4'">-->
-<!--    <v-row>-->
-<!--      <v-col cols="12">-->
-<!--        <h2 :class="mobile ? 'text-h4 mb-6' : 'text-h3 mb-8'" class="text-center text-white data-animate">-->
-<!--          {{ $t('contact.title') }}-->
-<!--        </h2>-->
-<!--        &lt;!&ndash; Debug Info &ndash;&gt;-->
-<!--        <v-alert type="info" class="mb-4">-->
-<!--          <pre>{{ debugInfo }}</pre>-->
-<!--        </v-alert>-->
-<!--      </v-col>-->
-<!--      <v-col cols="12" :md="6" :offset-md="mobile ? 0 : 3">-->
-<!--        <v-card :class="mobile ? 'pa-4 elevation-12 data-animate' : 'pa-6 elevation-12 data-animate'">-->
-<!--          <v-list :lines="mobile ? 'one' : 'two'">-->
-<!--            <v-list-item-->
-<!--                :href="`mailto:${t('contact.email')}`"-->
-<!--                link-->
-<!--                class="contact-item"-->
-<!--            >-->
-<!--            <template v-slot:prepend>-->
-<!--                <v-avatar color="primary" :size="mobile ? 32 : 40">-->
-<!--                  <v-icon color="white" :size="mobile ? 20 : 24">mdi-email</v-icon>-->
-<!--                </v-avatar>-->
-<!--              </template>-->
-<!--              <v-list-item-title :class="mobile ? 'text-body-2' : ''">{{ $t('contact.emailLabel') }}</v-list-item-title>-->
-<!--              <v-list-item-subtitle :class="mobile ? 'text-caption' : ''">{{ $t('contact.email') }}</v-list-item-subtitle>-->
-<!--            </v-list-item>-->
+  <v-container id="contact" :class="mobile ? 'py-8 contact-section' : 'py-16 contact-section mt-4 mb-4'">
+    <v-row>
+      <v-col cols="12">
+        <h2 :class="mobile ? 'text-h4 mb-6' : 'text-h3 mb-8'" class="text-center text-white data-animate">
+          {{ $t('contact.title') }}
+        </h2>
+      </v-col>
+      <v-col cols="12" :md="6" :offset-md="mobile ? 0 : 1">
+        <v-card :class="mobile ? 'pa-4 elevation-12' : 'pa-6 elevation-12'">
+          <v-list :lines="mobile ? 'one' : 'two'">
+            <v-list-item
+                :href="`mailto:${t('contact.email')}`"
+                link
+                class="contact-item"
+            >
+            <template v-slot:prepend>
+                <v-avatar color="primary" :size="mobile ? 32 : 40">
+                  <v-icon color="white" :size="mobile ? 20 : 24">mdi-email</v-icon>
+                </v-avatar>
+              </template>
+              <v-list-item-title :class="mobile ? 'text-body-2' : ''">{{ $t('contact.emailLabel') }}</v-list-item-title>
+              <v-list-item-subtitle :class="mobile ? 'text-caption' : ''">{{ $t('contact.email') }}</v-list-item-subtitle>
+            </v-list-item>
 
-<!--            <v-divider class="my-2"></v-divider>-->
+            <v-divider class="my-2"></v-divider>
 
-<!--            <v-list-item-->
-<!--                :href="$t('contact.linkedin')"-->
-<!--                target="_blank"-->
-<!--                link-->
-<!--                class="contact-item"-->
-<!--            >-->
-<!--              <template v-slot:prepend>-->
-<!--                <v-avatar color="blue" :size="mobile ? 32 : 40">-->
-<!--                  <v-icon color="white" :size="mobile ? 20 : 24">mdi-linkedin</v-icon>-->
-<!--                </v-avatar>-->
-<!--              </template>-->
-<!--              <v-list-item-title :class="mobile ? 'text-body-2' : ''">LinkedIn</v-list-item-title>-->
-<!--              <v-list-item-subtitle :class="mobile ? 'text-caption' : ''">{{ $t('contact.linkedinLabel') }}</v-list-item-subtitle>-->
-<!--            </v-list-item>-->
+            <v-list-item
+                :href="$t('contact.linkedin')"
+                target="_blank"
+                link
+                class="contact-item"
+            >
+              <template v-slot:prepend>
+                <v-avatar color="blue" :size="mobile ? 32 : 40">
+                  <v-icon color="white" :size="mobile ? 20 : 24">mdi-linkedin</v-icon>
+                </v-avatar>
+              </template>
+              <v-list-item-title :class="mobile ? 'text-body-2' : ''">LinkedIn</v-list-item-title>
+              <v-list-item-subtitle :class="mobile ? 'text-caption' : ''">{{ $t('contact.linkedinLabel') }}</v-list-item-subtitle>
+            </v-list-item>
 
-<!--            <v-divider class="my-2"></v-divider>-->
+            <v-divider class="my-2"></v-divider>
 
-<!--            <v-list-item-->
-<!--                :href="t('contact.github')"-->
-<!--                target="_blank"-->
-<!--                link-->
-<!--                class="contact-item"-->
-<!--            >-->
+            <v-list-item
+                :href="t('contact.github')"
+                target="_blank"
+                link
+                class="contact-item"
+            >
 
-<!--            <template v-slot:prepend>-->
-<!--                <v-avatar color="grey-darken-3" :size="mobile ? 32 : 40">-->
-<!--                  <v-icon color="white" :size="mobile ? 20 : 24">mdi-github</v-icon>-->
-<!--                </v-avatar>-->
-<!--              </template>-->
-<!--              <v-list-item-title :class="mobile ? 'text-body-2' : ''">GitHub</v-list-item-title>-->
-<!--              <v-list-item-subtitle :class="mobile ? 'text-caption' : ''">{{ $t('contact.githubLabel') }}</v-list-item-subtitle>-->
-<!--            </v-list-item>-->
-<!--          </v-list>-->
-<!--        </v-card>-->
-<!--      </v-col>-->
-<!--    </v-row>-->
-<!--  </v-container>-->
-    <Contact />
+            <template v-slot:prepend>
+                <v-avatar color="grey-darken-3" :size="mobile ? 32 : 40">
+                  <v-icon color="white" :size="mobile ? 20 : 24">mdi-github</v-icon>
+                </v-avatar>
+              </template>
+              <v-list-item-title :class="mobile ? 'text-body-2' : ''">GitHub</v-list-item-title>
+              <v-list-item-subtitle :class="mobile ? 'text-caption' : ''">{{ $t('contact.githubLabel') }}</v-list-item-subtitle>
+            </v-list-item>
+          </v-list>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
   <!-- Footer -->
   <v-footer class="bg-grey-darken-4 text-center py-4 ">
     <v-col cols="12">
@@ -301,84 +296,12 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ParticlesBackground from '@/components/ParticlesBackground.vue'
 import type { Skill, Project } from '@/types/portfolio'
-import Contact from ".././components/Contact.vue";
 
 gsap.registerPlugin(ScrollTrigger)
 
 const { locale, t, messages } = useI18n()
 const theme = useTheme()
 const { mobile } = useDisplay()
-const contactTitle = computed(() => {
-  try {
-    return t('contact.title') || 'Vamos Conversar?'
-  } catch (e) {
-    return 'Vamos Conversar?'
-  }
-})
-
-const contactEmail = computed(() => {
-  try {
-    return t('contact.email') || 'vitorbritorochaa@email.com'
-  } catch (e) {
-    return 'vitorbritorochaa@email.com'
-  }
-})
-
-const contactEmailLabel = computed(() => {
-  try {
-    return t('contact.emailLabel') || 'Email'
-  } catch (e) {
-    return 'Email'
-  }
-})
-
-const contactLinkedin = computed(() => {
-  try {
-    return t('contact.linkedin') || 'https://www.linkedin.com/in/vitor-rocha-557317348/'
-  } catch (e) {
-    return 'https://www.linkedin.com/in/vitor-rocha-557317348/'
-  }
-})
-
-const contactLinkedinLabel = computed(() => {
-  try {
-    return t('contact.linkedinLabel') || 'Conecte-se comigo'
-  } catch (e) {
-    return 'Conecte-se comigo'
-  }
-})
-
-const contactGithub = computed(() => {
-  try {
-    return t('contact.github') || 'https://github.com/Vitor-Brito-Rocha'
-  } catch (e) {
-    return 'https://github.com/Vitor-Brito-Rocha'
-  }
-})
-
-const contactGithubLabel = computed(() => {
-  try {
-    return t('contact.githubLabel') || 'Veja meus projetos'
-  } catch (e) {
-    return 'Veja meus projetos'
-  }
-})
-const debugInfo = computed(() => {
-  return JSON.stringify({
-    locale: locale.value,
-    hasContactMessages: !!messages.value[locale.value]?.contact,
-    contactKeys: messages.value[locale.value]?.contact ? Object.keys(messages.value[locale.value]?.contact ?? {}) : [],
-    values: {
-      title: contactTitle.value,
-      email: contactEmail.value,
-      emailLabel: contactEmailLabel.value,
-      linkedin: contactLinkedin.value,
-      linkedinLabel: contactLinkedinLabel.value,
-      github: contactGithub.value,
-      githubLabel: contactGithubLabel.value
-    }
-  }, null, 2)
-})
 // Refs
 const avatarRef = ref<HTMLElement>()
 const titleRef = ref<HTMLElement>()
