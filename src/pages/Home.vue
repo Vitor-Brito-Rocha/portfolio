@@ -601,21 +601,22 @@ onMounted(() => {
   transform: translateX(-50%) scale(1.2);
 }
 
-///* Contact Section */
-//.contact-section {
-//  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-//}
-//
-//.contact-item {
-//  transition: all 0.3s ease;
-//}
-//
-//.contact-item:hover {
-//  background-color: rgba(0, 0, 0, 0.05);
-//  transform: translateY(-2px);
-//}
+/* Contact Section */
+.contact-section {
+  /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);*/
+   background: #667eea;
+ }
 
-/* Skill Cards */
+ .contact-item {
+   transition: all 0.3s ease;
+ }
+
+ .contact-item:hover {
+   /*background-color: rgba(0, 0, 0, 0.05);
+   transform: translateY(-2px)*/
+ }
+
+ /* Skill Cards */
 .skill-card {
   transition: all 0.3s ease;
   height: 100%;
@@ -649,9 +650,9 @@ onMounted(() => {
   transition: opacity 0.3s ease;
 }
 
-//.project-card:hover .project-overlay {
-//  opacity: 1;
-//}
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
 
 /* Mobile specific adjustments */
 @media (max-width: 600px) {
@@ -683,9 +684,9 @@ onMounted(() => {
 
 /* Touch device optimizations */
 @media (hover: none) and (pointer: coarse) {
-  //.contact-item:active {
-  //  background-color: rgba(0, 0, 0, 0.1);
-  //}
+  .contact-item:active {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
 
   .project-overlay {
     opacity: 1;
