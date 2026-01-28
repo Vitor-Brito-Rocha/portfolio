@@ -192,7 +192,7 @@
       </v-col>
       <v-col cols="12" :md="6" :offset-md="mobile ? 0 : 3">
         <v-card :class="mobile ? 'pa-4 elevation-12' : 'pa-6 elevation-12'">
-          <v-list :lines="mobile ? 'one' : 'two'">
+          <v-list >
             <v-list-item
                 :href="`mailto:${t('contact.email')}`"
                 link
@@ -606,9 +606,9 @@ onMounted(() => {
    background: #667eea;
  }
 
- .contact-item {
+/* .contact-item {
    transition: all 0.3s ease;
- }
+ }*/
 
  .contact-item:hover {
    /*background-color: rgba(0, 0, 0, 0.05);
@@ -683,9 +683,9 @@ onMounted(() => {
 
 /* Touch device optimizations */
 @media (hover: none) and (pointer: coarse) {
-  .contact-item:active {
+ /* .contact-item:active {
     background-color: rgba(0, 0, 0, 0.1);
-  }
+  } */
 
   .project-overlay {
     opacity: 1;
