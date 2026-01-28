@@ -20,7 +20,7 @@ export default {
     },
     about: {
         title: 'Sobre Mim',
-        description: 'Desenvolvedor apaixonado por criar soluções elegantes e eficientes. Com experiência em desenvolvimento Full-Stack, foco em entregar produtos de alta qualidade que fazem a diferença, contribuo com o desenvolvimento profissional de colegas e resolvo a "dor" do cliente.'
+        description: 'Desenvolvedor Full-Stack com foco na criação de soluções eficientes e bem estruturadas. Possuo experiência no desenvolvimento de aplicações completas, priorizando qualidade, boas práticas e a resolução de problemas reais, sempre buscando gerar valor para o produto, para o time e para o cliente.'
     },
     skills: {
         title: 'Habilidades Técnicas',

@@ -20,7 +20,7 @@ export default {
     },
     about: {
         title: 'About Me',
-        description: 'A developer passionate about creating elegant and efficient solutions. With experience in Full-Stack development, I focus on delivering high-quality products that make a difference, contributing to my colleagues’ professional growth and solving real customer pain points.'
+        description: 'Full-Stack Developer focused on building efficient and well-structured solutions. Experienced in developing end-to-end applications, with an emphasis on quality, best practices, and solving real-world problems to generate value for the product, the team, and the client.'
     },
     skills: {
         title: 'Technical Skills',
