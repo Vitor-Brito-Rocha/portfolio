@@ -476,7 +476,6 @@ onMounted(() => {
         start: 'top bottom-=100',
         once: true
       },
-      opacity: 0,
       y: 40,
       duration: 0.6,
       ease: 'power2.out'
