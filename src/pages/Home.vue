@@ -433,9 +433,6 @@ onMounted(()=>{
   })
 
 })
-
-</script>
-})
 </script>
 
 <style scoped>
