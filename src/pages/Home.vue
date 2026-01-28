@@ -185,14 +185,14 @@
   <!-- Contact Section -->
   <v-container id="contact" :class="mobile ? 'py-8 contact-section' : 'py-16 contact-section mt-4 mb-4'">
     <v-row>
-      <v-col cols="12">
+      <v-col>
         <h2 :class="mobile ? 'text-h4 mb-6' : 'text-h3 mb-8'" class="text-center text-white data-animate">
           {{ $t('contact.title') }}
         </h2>
       </v-col>
-      <v-col cols="12" :md="6" :offset-md="mobile ? 0 : 3">
+      <v-col>
         <v-card :class="mobile ? 'pa-4 elevation-12' : 'pa-6 elevation-12'">
-          <v-list >
+          <v-list class="w-100 h-100 ">
             <v-list-item
                 :href="`mailto:${t('contact.email')}`"
                 link
