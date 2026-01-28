@@ -85,7 +85,7 @@
   </v-container>
 
   <!-- Skills Section -->
-  <v-container id="skills" :class="[mobile ? 'py-8' : 'py-16', skillsBackground]">
+  <v-container id="skills" :class="[mobile ? 'py-8' : 'py-16']">
     <v-row>
       <v-col cols="12">
         <h2 :class="mobile ? 'text-h4 mb-6' : 'text-h3 mb-8'" class="text-center data-animate">
@@ -184,7 +184,7 @@
   </v-container>
 
   <!-- Experience Timeline -->
-  <v-container id="experience" :class="[mobile ? 'py-8' : 'py-16', skillsBackground]">
+  <v-container id="experience" :class="[mobile ? 'py-8' : 'py-16']">
     <v-row>
       <v-col cols="12">
         <h2 :class="mobile ? 'text-h4 mb-6' : 'text-h3 mb-8'" class="text-center data-animate">
@@ -224,11 +224,11 @@
       </v-col>
       <v-col cols="12" :md="6" :offset-md="mobile ? 0 : 3">
         <v-card :class="mobile ? 'pa-4 elevation-12 data-animate' : 'pa-6 elevation-12 data-animate'">
-          <v-list class="data-animate" :lines="mobile ? 'one' : 'two'">
+          <v-list :lines="mobile ? 'one' : 'two'">
             <v-list-item
                 :href="`mailto:${t('contact.email')}`"
                 link
-                class="contact-item data-animate"
+                class="contact-item"
             >
             <template v-slot:prepend>
                 <v-avatar color="primary" :size="mobile ? 32 : 40">
@@ -296,6 +296,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ParticlesBackground from '@/components/ParticlesBackground.vue'
 import type { Skill, Project } from '@/types/portfolio'
+import Contact from ".././components/Contact.vue";
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -370,11 +371,6 @@ const experiences = ref([
   },
 ])
 
-// Computed
-const skillsBackground = computed<string>(() => {
-  return theme.global.current.value.dark ? 'bg-grey-darken-4' : 'bg-grey-lighten-4'
-})
-
 // Methods
 const scrollTo = (id: string): void => {
   const element = document.getElementById(id)
@@ -391,107 +387,6 @@ const scrollTo = (id: string): void => {
 }
 
 
-const counterAnimation = (element: HTMLElement, target: number): void => {
-  const obj = { value: 0 }
-  gsap.to(obj, {
-    value: target,
-    duration: 2,
-    ease: 'power1.out',
-    onUpdate: () => {
-      element.textContent = Math.round(obj.value).toString()
-    }
-  })
-}
-
-// Animações ao montar
-onMounted(() => {
-  if (mobile.value) return
-  // Animação de entrada do hero
-  const tl = gsap.timeline({
-    onComplete: () => {
-      if (buttonsRef.value) {
-        const buttons = buttonsRef.value.querySelectorAll('.v-btn')
-        buttons.forEach(btn => {
-          (btn as HTMLElement).style.pointerEvents = 'auto'
-        })
-      }
-    }
-  })
-
-  if (avatarRef.value) {
-    tl.from(avatarRef.value, {
-      duration: 0.8,
-      ease: 'back.out(1.7)'
-    })
-  }
-
-  if (titleRef.value) {
-    tl.from(titleRef.value, {
-      y: 50,
-      duration: 0.6,
-      ease: 'power3.out'
-    }, '-=0.3')
-  }
-
-  if (subtitleRef.value) {
-    tl.from(subtitleRef.value, {
-      y: 30,
-      duration: 0.6,
-      ease: 'power3.out'
-    }, '-=0.3')
-  }
-
-  if (buttonsRef.value) {
-    tl.from(buttonsRef.value.children, {
-      y: 30,
-      stagger: 0.2,
-      ease: 'power3.out',
-      onComplete: function() {
-        this.targets().forEach((target: any) => {
-          target.style.pointerEvents = 'auto'
-        })
-      }
-    }, '-=0.2')
-  }
-
-  // Animação do scroll indicator
-  gsap.to('.scroll-indicator', {
-    y: 10,
-    duration: 1,
-    repeat: -1,
-    yoyo: true,
-    ease: 'power1.inOut'
-  })
-
-
-  gsap.utils.toArray('[data-animate]').forEach((el: any) => {
-    gsap.from(el, {
-      scrollTrigger: {
-        trigger: el,
-        start: 'top bottom-=100',
-        once: true
-      },
-      y: 40,
-      duration: 0.6,
-      ease: 'power2.out'
-    })
-  })
-
-  // Animação dos contadores
-  stats.value.forEach(stat => {
-    ScrollTrigger.create({
-      trigger: '#about',
-      start: 'top center',
-      once: true,
-      onEnter: () => {
-        const element = statRefs.value[stat.label]
-        if (element) {
-          counterAnimation(element, stat.value)
-        }
-      }
-    })
-  })
-})
 </script>
 
 <style scoped>
