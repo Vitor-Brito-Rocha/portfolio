@@ -85,7 +85,7 @@
   </v-container>
 
   <!-- Skills Section -->
-  <v-container id="skills" :class="[mobile ? 'py-8' : 'py-16']">
+  <v-container id="skills" :class="[mobile ? 'py-8' : 'py-16', skillsBackground]">
     <v-row>
       <v-col cols="12">
         <h2 :class="mobile ? 'text-h4 mb-6' : 'text-h3 mb-8'" class="text-center data-animate">
@@ -184,7 +184,7 @@
   </v-container>
 
   <!-- Experience Timeline -->
-  <v-container id="experience" :class="[mobile ? 'py-8' : 'py-16']">
+  <v-container id="experience" :class="[mobile ? 'py-8' : 'py-16', skillsBackground]">
     <v-row>
       <v-col cols="12">
         <h2 :class="mobile ? 'text-h4 mb-6' : 'text-h3 mb-8'" class="text-center data-animate">
@@ -222,17 +222,21 @@
           {{ $t('contact.title') }}
         </h2>
       </v-col>
-      <v-col cols="12" md="6" offset-md="3">
+      <v-col cols="12" :md="6" :offset-md="mobile ? 0 : 3">
         <v-card :class="mobile ? 'pa-4 elevation-12 data-animate' : 'pa-6 elevation-12 data-animate'">
-          <v-list lines="two">
+          <v-list class="data-animate" :lines="mobile ? 'one' : 'two'">
             <v-list-item
-                :href="`mailto:${$t('contact.email')}`"
+                :href="`mailto:${t('contact.email')}`"
                 link
-                class="contact-item"
-                prepend-icon="mdi-email"
+                class="contact-item data-animate"
             >
-              <v-list-item-title>{{ $t('contact.emailLabel') }}</v-list-item-title>
-              <v-list-item-subtitle>{{ $t('contact.email') }}</v-list-item-subtitle>
+              <template v-slot:prepend>
+                <v-avatar color="primary" :size="mobile ? 32 : 40">
+                  <v-icon color="white" :size="mobile ? 20 : 24">mdi-email</v-icon>
+                </v-avatar>
+              </template>
+              <v-list-item-title :class="mobile ? 'text-body-2' : ''">{{ $t('contact.emailLabel') }}</v-list-item-title>
+              <v-list-item-subtitle :class="mobile ? 'text-caption' : ''">{{ $t('contact.email') }}</v-list-item-subtitle>
             </v-list-item>
 
             <v-divider class="my-2"></v-divider>
@@ -242,29 +246,39 @@
                 target="_blank"
                 link
                 class="contact-item"
-                prepend-icon="mdi-linkedin"
             >
-              <v-list-item-title>LinkedIn</v-list-item-title>
-              <v-list-item-subtitle>{{ $t('contact.linkedinLabel') }}</v-list-item-subtitle>
+              <template v-slot:prepend>
+                <v-avatar color="blue" :size="mobile ? 32 : 40">
+                  <v-icon color="white" :size="mobile ? 20 : 24">mdi-linkedin</v-icon>
+                </v-avatar>
+              </template>
+              <v-list-item-title :class="mobile ? 'text-body-2' : ''">LinkedIn</v-list-item-title>
+              <v-list-item-subtitle :class="mobile ? 'text-caption' : ''">{{ $t('contact.linkedinLabel') }}</v-list-item-subtitle>
             </v-list-item>
 
             <v-divider class="my-2"></v-divider>
 
             <v-list-item
-                :href="$t('contact.github')"
+                :href="t('contact.github')"
                 target="_blank"
                 link
                 class="contact-item"
-                prepend-icon="mdi-github"
             >
-              <v-list-item-title>GitHub</v-list-item-title>
-              <v-list-item-subtitle>{{ $t('contact.githubLabel') }}</v-list-item-subtitle>
+
+              <template v-slot:prepend>
+                <v-avatar color="grey-darken-3" :size="mobile ? 32 : 40">
+                  <v-icon color="white" :size="mobile ? 20 : 24">mdi-github</v-icon>
+                </v-avatar>
+              </template>
+              <v-list-item-title :class="mobile ? 'text-body-2' : ''">GitHub</v-list-item-title>
+              <v-list-item-subtitle :class="mobile ? 'text-caption' : ''">{{ $t('contact.githubLabel') }}</v-list-item-subtitle>
             </v-list-item>
           </v-list>
         </v-card>
       </v-col>
     </v-row>
-  </v-container>  <!-- Footer -->
+  </v-container>
+  <!-- Footer -->
   <v-footer class="bg-grey-darken-4 text-center py-4 ">
     <v-col cols="12">
       <p :class="mobile ? 'text-caption text-grey-lighten-1 mb-0' : 'text-grey-lighten-1 mb-0'">
@@ -282,7 +296,6 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import ParticlesBackground from '@/components/ParticlesBackground.vue'
 import type { Skill, Project } from '@/types/portfolio'
-import Contact from ".././components/Contact.vue";
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -357,6 +370,11 @@ const experiences = ref([
   },
 ])
 
+// Computed
+const skillsBackground = computed<string>(() => {
+  return theme.global.current.value.dark ? 'bg-grey-darken-4' : 'bg-grey-lighten-4'
+})
+
 // Methods
 const scrollTo = (id: string): void => {
   const element = document.getElementById(id)
@@ -373,6 +391,113 @@ const scrollTo = (id: string): void => {
 }
 
 
+const counterAnimation = (element: HTMLElement, target: number): void => {
+  const obj = { value: 0 }
+  gsap.to(obj, {
+    value: target,
+    duration: 2,
+    ease: 'power1.out',
+    onUpdate: () => {
+      element.textContent = Math.round(obj.value).toString()
+    }
+  })
+}
+
+// Animações ao montar
+onMounted(() => {
+  if (mobile.value) return
+  // Animação de entrada do hero
+  const tl = gsap.timeline({
+    onComplete: () => {
+      if (buttonsRef.value) {
+        const buttons = buttonsRef.value.querySelectorAll('.v-btn')
+        buttons.forEach(btn => {
+          (btn as HTMLElement).style.pointerEvents = 'auto'
+        })
+      }
+    }
+  })
+
+  if (avatarRef.value) {
+    tl.from(avatarRef.value, {
+      scale: 0,
+      opacity: 0,
+      duration: 0.8,
+      ease: 'back.out(1.7)'
+    })
+  }
+
+  if (titleRef.value) {
+    tl.from(titleRef.value, {
+      y: 50,
+      opacity: 0,
+      duration: 0.6,
+      ease: 'power3.out'
+    }, '-=0.3')
+  }
+
+  if (subtitleRef.value) {
+    tl.from(subtitleRef.value, {
+      y: 30,
+      opacity: 0,
+      duration: 0.6,
+      ease: 'power3.out'
+    }, '-=0.3')
+  }
+
+  if (buttonsRef.value) {
+    tl.from(buttonsRef.value.children, {
+      y: 30,
+      duration: 0.5,
+      stagger: 0.2,
+      ease: 'power3.out',
+      onComplete: function() {
+        this.targets().forEach((target: any) => {
+          target.style.pointerEvents = 'auto'
+        })
+      }
+    }, '-=0.2')
+  }
+
+  // Animação do scroll indicator
+  gsap.to('.scroll-indicator', {
+    y: 10,
+    duration: 1,
+    repeat: -1,
+    yoyo: true,
+    ease: 'power1.inOut'
+  })
+
+
+  gsap.utils.toArray('[data-animate]').forEach((el: any) => {
+    gsap.from(el, {
+      scrollTrigger: {
+        trigger: el,
+        start: 'top bottom-=100',
+        once: true
+      },
+      opacity: 0,
+      y: 40,
+      duration: 0.6,
+      ease: 'power2.out'
+    })
+  })
+
+  // Animação dos contadores
+  stats.value.forEach(stat => {
+    ScrollTrigger.create({
+      trigger: '#about',
+      start: 'top center',
+      once: true,
+      onEnter: () => {
+        const element = statRefs.value[stat.label]
+        if (element) {
+          counterAnimation(element, stat.value)
+        }
+      }
+    })
+  })
+})
 </script>
 
 <style scoped>
@@ -390,13 +515,7 @@ const scrollTo = (id: string): void => {
   display: flex;
   align-items: center;
 }
-.contact-item :deep(.v-list-item__prepend) {
-  margin-right: 16px;
-}
 
-.contact-item :deep(.v-icon) {
-  color: rgb(var(--v-theme-primary));
-}
 .hero-section::before {
   content: '';
   position: absolute;
