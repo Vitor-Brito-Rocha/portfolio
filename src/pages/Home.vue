@@ -74,7 +74,7 @@
           :md="3"
           class="data-animate"
       >
-        <v-card :class="mobile ? 'text-center pa-4' : 'text-center pa-6'" elevation="4">
+        <v-card data-animate :class="mobile ? 'text-center pa-4' : 'text-center pa-6'" elevation="4">
           <h3 :class="mobile ? 'text-h4 font-weight-bold' : 'text-h3 font-weight-bold'" :style="{ color: stat.color }">
             <span :ref="el => { if (el) statRefs[stat.label] = el as HTMLElement }">0</span>{{ stat.suffix }}
           </h3>
@@ -101,6 +101,7 @@
           :lg="3"
       >
         <v-card
+            data-animate
             :class="mobile ? 'pa-3 skill-card data-animate' : 'pa-4 skill-card data-animate'"
             hover
             elevation="4"
@@ -133,6 +134,7 @@
           :lg="4"
       >
         <v-card
+            data-animate
             class="project-card data-animate"
             height="100%"
         >
@@ -369,135 +371,19 @@ const experiences = ref([
     color: 'primary'
   },
 ])
-
-// Computed
 const skillsBackground = computed<string>(() => {
   return theme.global.current.value.dark ? 'bg-grey-darken-4' : 'bg-grey-lighten-4'
 })
 
-// Methods
 const scrollTo = (id: string): void => {
   const element = document.getElementById(id)
   if (element) {
     const offset = mobile.value ? 56 : 80
     const elementPosition = element.getBoundingClientRect().top
     const offsetPosition = elementPosition + window.pageYOffset - offset
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: 'smooth'
-    })
+    window.scrollTo({ top: offsetPosition, behavior: 'smooth' })
   }
 }
-
-
-const counterAnimation = (element: HTMLElement, target: number): void => {
-  const obj = { value: 0 }
-  gsap.to(obj, {
-    value: target,
-    duration: 2,
-    ease: 'power1.out',
-    onUpdate: () => {
-      element.textContent = Math.round(obj.value).toString()
-    }
-  })
-}
-
-// Animações ao montar
-onMounted(() => {
-  if (mobile.value) return
-  // Animação de entrada do hero
-  const tl = gsap.timeline({
-    onComplete: () => {
-      if (buttonsRef.value) {
-        const buttons = buttonsRef.value.querySelectorAll('.v-btn')
-        buttons.forEach(btn => {
-          (btn as HTMLElement).style.pointerEvents = 'auto'
-        })
-      }
-    }
-  })
-
-  if (avatarRef.value) {
-    tl.from(avatarRef.value, {
-      scale: 0,
-      opacity: 0,
-      duration: 0.8,
-      ease: 'back.out(1.7)'
-    })
-  }
-
-  if (titleRef.value) {
-    tl.from(titleRef.value, {
-      y: 50,
-      opacity: 0,
-      duration: 0.6,
-      ease: 'power3.out'
-    }, '-=0.3')
-  }
-
-  if (subtitleRef.value) {
-    tl.from(subtitleRef.value, {
-      y: 30,
-      opacity: 0,
-      duration: 0.6,
-      ease: 'power3.out'
-    }, '-=0.3')
-  }
-
-  if (buttonsRef.value) {
-    tl.from(buttonsRef.value.children, {
-      y: 30,
-      duration: 0.5,
-      stagger: 0.2,
-      ease: 'power3.out',
-      onComplete: function() {
-        this.targets().forEach((target: any) => {
-          target.style.pointerEvents = 'auto'
-        })
-      }
-    }, '-=0.2')
-  }
-
-  // Animação do scroll indicator
-  gsap.to('.scroll-indicator', {
-    y: 10,
-    duration: 1,
-    repeat: -1,
-    yoyo: true,
-    ease: 'power1.inOut'
-  })
-
-
-  gsap.utils.toArray('[data-animate]').forEach((el: any) => {
-    gsap.from(el, {
-      scrollTrigger: {
-        trigger: el,
-        start: 'top bottom-=100',
-        once: true
-      },
-      opacity: 0,
-      y: 40,
-      duration: 0.6,
-      ease: 'power2.out'
-    })
-  })
-
-  // Animação dos contadores
-  stats.value.forEach(stat => {
-    ScrollTrigger.create({
-      trigger: '#about',
-      start: 'top center',
-      once: true,
-      onEnter: () => {
-        const element = statRefs.value[stat.label]
-        if (element) {
-          counterAnimation(element, stat.value)
-        }
-      }
-    })
-  })
-})
 </script>
 
 <style scoped>
@@ -600,7 +486,90 @@ onMounted(() => {
 .scroll-indicator:hover {
   transform: translateX(-50%) scale(1.2);
 }
+/* 1. Animações de Entrada (Hero) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Aplicando as animações com delays */
+.hero-avatar {
+  animation: scaleIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.hero-title {
+  animation: fadeInUp 0.6s ease-out 0.3s forwards;
+  opacity: 0; /* Começa invisível até a animação iniciar */
+}
+
+.hero-subtitle {
+  animation: fadeInUp 0.6s ease-out 0.5s forwards;
+  opacity: 0;
+}
+
+.hero-buttons {
+  animation: fadeInUp 0.6s ease-out 0.7s forwards;
+  opacity: 0;
+}
+
+/* 2. Animação de Scroll (O que era o ScrollTrigger) */
+/* Se quiser suporte moderno (Chrome/Edge/Safari 17+), use scroll-timeline */
+@keyframes revealOnScroll {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Classe para aplicar nos elementos que devem "surgir" ao rolar */
+/* Nota: Para suporte em todos os browsers sem JS, usamos view-timeline */
+[data-animate] {
+  view-timeline-name: --revealing;
+  view-timeline-axis: block;
+  animation-timeline: --revealing;
+  animation-name: revealOnScroll;
+  animation-range: entry 10% cover 30%;
+  animation-fill-mode: both;
+}
+
+/* 3. Scroll Indicator (Pulse/Bounce) */
+.scroll-indicator {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+  40% { transform: translateX(-50%) translateY(10px); }
+  60% { transform: translateX(-50%) translateY(5px); }
+}
+
+/* 4. Contador (Limitação do CSS) */
+/* Nota: CSS puro não consegue contar números de 0 a 10 facilmente sem truques complexos.
+   Para o número "1+", é melhor deixar estático ou usar uma transição simples de opacidade. */
+.stat-value {
+  transition: all 1s ease;
+}
 /* Contact Section */
 .contact-section {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
