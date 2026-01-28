@@ -594,15 +594,25 @@ onMounted(()=>{
   }
 }
 
+
 /* Classe para aplicar nos elementos que devem "surgir" ao rolar */
 /* Nota: Para suporte em todos os browsers sem JS, usamos view-timeline */
-[data-animate] {
-  view-timeline-name: --revealing;
-  view-timeline-axis: block;
-  animation-timeline: --revealing;
-  animation-name: revealOnScroll;
-  animation-range: entry 10% cover 30%;
-  animation-fill-mode: both;
+@supports (animation-timeline: view()) {
+  [data-animate] {
+    view-timeline-name: --revealing;
+    view-timeline-axis: block;
+    animation-timeline: --revealing;
+    animation-name: revealOnScroll;
+    animation-range: entry 10% cover 30%;
+    animation-fill-mode: both;
+    animation-duration: 1s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-animate] {
+    animation: none !important;
+  }
 }
 
 /* 3. Scroll Indicator (Pulse/Bounce) */
