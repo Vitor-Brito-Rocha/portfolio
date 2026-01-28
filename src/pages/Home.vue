@@ -217,12 +217,12 @@
   <!-- Contact Section -->
   <v-container id="contact" :class="mobile ? 'py-8 contact-section' : 'py-16 contact-section mt-4 mb-4'">
     <v-row>
-      <v-col cols="12">
+      <v-col cols="6">
         <h2 :class="mobile ? 'text-h4 mb-6' : 'text-h3 mb-8'" class="text-center text-white data-animate">
           {{ $t('contact.title') }}
         </h2>
       </v-col>
-      <v-col cols="12" :md="6" :offset-md="mobile ? 0 : 3">
+      <v-col cols="6" :md="6" :offset-md="mobile ? 0 : 3">
         <v-card :class="mobile ? 'pa-4 elevation-12 data-animate' : 'pa-6 elevation-12 data-animate'">
           <v-list :lines="mobile ? 'one' : 'two'">
             <v-list-item
