@@ -420,8 +420,6 @@ onMounted(() => {
 
   if (avatarRef.value) {
     tl.from(avatarRef.value, {
-      scale: 0,
-      opacity: 0,
       duration: 0.8,
       ease: 'back.out(1.7)'
     })
@@ -430,7 +428,6 @@ onMounted(() => {
   if (titleRef.value) {
     tl.from(titleRef.value, {
       y: 50,
-      opacity: 0,
       duration: 0.6,
       ease: 'power3.out'
     }, '-=0.3')
@@ -439,7 +436,6 @@ onMounted(() => {
   if (subtitleRef.value) {
     tl.from(subtitleRef.value, {
       y: 30,
-      opacity: 0,
       duration: 0.6,
       ease: 'power3.out'
     }, '-=0.3')
@@ -448,7 +444,6 @@ onMounted(() => {
   if (buttonsRef.value) {
     tl.from(buttonsRef.value.children, {
       y: 30,
-      duration: 0.5,
       stagger: 0.2,
       ease: 'power3.out',
       onComplete: function() {
