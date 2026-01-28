@@ -222,7 +222,7 @@
           {{ $t('contact.title') }}
         </h2>
       </v-col>
-      <v-col cols="12" :md="6" :offset-md="mobile ? 0 : 1">
+      <v-col cols="12" :md="6" :offset-md="mobile ? 0 : 3">
         <v-card :class="mobile ? 'pa-4 elevation-12' : 'pa-6 elevation-12'">
           <v-list :lines="mobile ? 'one' : 'two'">
             <v-list-item
@@ -601,19 +601,19 @@ onMounted(() => {
   transform: translateX(-50%) scale(1.2);
 }
 
-/* Contact Section */
-.contact-section {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-}
-
-.contact-item {
-  transition: all 0.3s ease;
-}
-
-.contact-item:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-  transform: translateY(-2px);
-}
+///* Contact Section */
+//.contact-section {
+//  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+//}
+//
+//.contact-item {
+//  transition: all 0.3s ease;
+//}
+//
+//.contact-item:hover {
+//  background-color: rgba(0, 0, 0, 0.05);
+//  transform: translateY(-2px);
+//}
 
 /* Skill Cards */
 .skill-card {
@@ -649,9 +649,9 @@ onMounted(() => {
   transition: opacity 0.3s ease;
 }
 
-.project-card:hover .project-overlay {
-  opacity: 1;
-}
+//.project-card:hover .project-overlay {
+//  opacity: 1;
+//}
 
 /* Mobile specific adjustments */
 @media (max-width: 600px) {
@@ -683,9 +683,9 @@ onMounted(() => {
 
 /* Touch device optimizations */
 @media (hover: none) and (pointer: coarse) {
-  .contact-item:active {
-    background-color: rgba(0, 0, 0, 0.1);
-  }
+  //.contact-item:active {
+  //  background-color: rgba(0, 0, 0, 0.1);
+  //}
 
   .project-overlay {
     opacity: 1;
